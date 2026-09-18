@@ -58,6 +58,7 @@ Create a `.env` file in `BACKEND/` with:
 ```env
 PORT=3000
 MONGO_URI=your_mongodb_connection_string
+APP_URL=http://localhost:3000
 JWT_SECRET=your_jwt_secret
 EMAIL_USER=your_email@gmail.com
 EMAIL_PASS=your_email_app_password
@@ -66,6 +67,8 @@ EMAIL_PASS=your_email_app_password
 ```bash
 npm run dev
 ```
+
+For deployment, set `APP_URL` on the backend to its public URL and set `VITE_API_URL` on the frontend to that same backend URL. For example, `APP_URL=https://your-backend.onrender.com` and `VITE_API_URL=https://your-backend.onrender.com`.
 
 **3. Setup Frontend**
 

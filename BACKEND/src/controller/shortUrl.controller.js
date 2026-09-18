@@ -3,6 +3,9 @@ import { getShortUrl } from '../dao/shortUrl.js';
 import wrapAsync from '../utils/tryCatchWrapper.js';
 import { NotFoundError, BadRequestError } from '../utils/errorHandler.js';
 
+const getShortUrlBase = () =>
+  (process.env.APP_URL || 'http://localhost:3000').replace(/\/+$/, '');
+
 
 export const createShortUrl = wrapAsync(async (req, res) => {
   const data = req.body;
@@ -26,7 +29,7 @@ export const createShortUrl = wrapAsync(async (req, res) => {
   } else {
     shortUrl = await createShortUrlWithoutUser(data.url);
   }
-  res.status(200).json({ shortUrl: process.env.APP_URL + shortUrl });
+  res.status(200).json({ shortUrl: `${getShortUrlBase()}/${shortUrl}` });
 });
 
 export const redirectFromShortUrl = wrapAsync(async (req, res) => {
@@ -46,5 +49,5 @@ export const createCustomShortUrl = wrapAsync(async (req, res) => {
   }else{
     shortUrl = await createShortUrlWithoutUser(data.url);
   }
-  res.status(200).json({ shortUrl: process.env.APP_URL + shortUrl });
+  res.status(200).json({ shortUrl: `${getShortUrlBase()}/${shortUrl}` });
 });

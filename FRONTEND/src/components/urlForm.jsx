@@ -1,157 +1,9 @@
-// import React, { useState } from 'react'
-// import { createShortUrl, generateQRCode } from '../api/shortUrl.api'
-// import { useSelector } from 'react-redux'
-// import { useQueryClient } from '@tanstack/react-query'
-// import { queryClient } from '../main'
-
-// const UrlForm = () => {
-//   const queryClientInstance = useQueryClient()
-//   const [url, setUrl] = useState("https://your-url.com")
-//   const [shortUrl, setShortUrl] = useState(null)
-//   const [qrCode, setQrCode] = useState(null)
-//   const [copied, setCopied] = useState(false)
-//   const [error, setError] = useState(null)
-//   const [loading, setLoading] = useState(false)
-//   const [customUrl, setCustomUrl] = useState("")
-//   const {isAuthenticated} = useSelector((state) => state.auth)
-
-//   const handleSubmit = async () => {
-//     try{
-//       setLoading(true)
-//       const shortUrl = await createShortUrl(url,customUrl)
-//       setShortUrl(shortUrl)
-      
-//       // Generate QR code for the short URL
-//       try {
-//         const qr = await generateQRCode(shortUrl)
-//         setQrCode(qr)
-//       } catch (qrErr) {
-//         console.error('QR generation failed:', qrErr)
-//         setQrCode(null)
-//       }
-      
-//       queryClientInstance.invalidateQueries({queryKey: ['userUrls']})
-//       setError(null)
-//       setLoading(false)
-//     }catch(err){
-//       setError(err.message)
-//       setLoading(false)
-//     }
-//   }
-//   const handleCopy = () => {
-//     navigator.clipboard.writeText(shortUrl);
-//     setCopied(true);
-    
-//     // Reset the copied state after 2 seconds
-//     setTimeout(() => {
-//       setCopied(false);
-//     }, 2000);
-//   }
-
-//   const downloadQR = () => {
-//     if (!qrCode) return
-    
-//     const link = document.createElement('a')
-//     link.href = qrCode
-//     link.download = `qr-${Date.now()}.png`
-//     link.click()
-//   }
-
-//   return (
-//     <div  className="space-y-4">
-//         <div>
-//           <label htmlFor="url" className="block text-sm font-medium text-gray-700 mb-1">
-//             Enter your URL
-//           </label>
-//           <input
-//             type="url"
-//             id="url"
-//             value={url}
-//             onInput={(event)=>setUrl(event.target.value)}
-//             placeholder="https://example.com"
-//             required
-//             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-//           />
-//         </div>
-//         <button
-//           onClick={handleSubmit}
-//           type="submit"
-//           disabled={loading}
-//           className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
-//         >{loading ? 'Creating...' : 'Shorten URL'}
-//         </button>
-//          {error && (
-//           <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-md">
-//             {error}
-//           </div>
-//         )}
-//         {isAuthenticated && (
-//           <div className="mt-4">
-//             <label htmlFor="customUrl" className="block text-sm font-medium text-gray-700 mb-1">
-//               Custom URL (optional)
-//             </label>
-//             <input
-//               type="text"
-//               id="customUrl"
-//               value={customUrl}
-//               onChange={(event) => setCustomUrl(event.target.value)}
-//               placeholder="Enter custom Url"
-//               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-//             />
-//           </div>
-//         )}
-//         {shortUrl && (
-//           <div className="mt-6 space-y-4">
-//             <div>
-//               <h2 className="text-lg font-semibold mb-2">Your shortened URL:</h2>
-//               <div className="flex items-center">
-//                 <input
-//                   type="text"
-//                   readOnly
-//                   value={shortUrl}
-//                   className="flex-1 p-2 border border-gray-300 rounded-l-md bg-gray-50"
-//                 />
-//                 <button
-//                   onClick={handleCopy}
-//                   className={`px-4 py-2 rounded-r-md transition-colors duration-200 ${
-//                     copied 
-//                       ? 'bg-green-500 text-white hover:bg-green-600' 
-//                       : 'bg-gray-200 hover:bg-gray-300'
-//                   }`}
-//                 >
-//                   {copied ? 'Copied!' : 'Copy'}
-//                 </button>
-//               </div>
-//             </div>
-            
-//             {qrCode && (
-//               <div className="mt-6 p-4 border border-gray-300 rounded-md bg-gray-50 text-center">
-//                 <h3 className="text-lg font-semibold mb-3">QR Code</h3>
-//                 <img 
-//                   src={qrCode} 
-//                   alt="QR Code" 
-//                   className="w-48 h-48 mx-auto border-2 border-gray-300 rounded-md p-2 bg-white"
-//                 />
-//                 <button
-//                   onClick={downloadQR}
-//                   className="mt-3 w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600"
-//                 >
-//                   Download QR Code
-//                 </button>
-//               </div>
-//             )}
-//           </div>
-//         )}
-//       </div>
-//   )
-// }
-
-// export default UrlForm
-
 import React, { useState } from 'react';
 import { createShortUrl, generateQRCode } from '../api/shortUrl.api';
 import { useSelector } from 'react-redux';
 import { useQueryClient } from '@tanstack/react-query';
+
+const shortUrlBase = (import.meta.env.VITE_API_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 const UrlForm = () => {
   const queryClientInstance = useQueryClient();
@@ -249,7 +101,7 @@ const UrlForm = () => {
           </div>
           {customUrl && (
             <span style={styles.previewText}>
-              Preview: <span style={{ color: '#2f6690' }}>localhost:3000/{customUrl}</span>
+              Preview: <span style={{ color: '#2f6690' }}>{shortUrlBase}/{customUrl}</span>
             </span>
           )}
         </div>
