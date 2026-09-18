@@ -11,8 +11,16 @@ import cors from 'cors';
 import { attachUser } from './src/utils/attachUser.js';
 import cookieParser from 'cookie-parser';
 import qrRoutes from './src/routes/qr.routes.js'
+import dns from 'dns';
 
-dotenv.config('./.env');
+dns.setServers(
+  (process.env.DNS_SERVERS || '1.1.1.1,8.8.8.8')
+    .split(',')
+    .map((server) => server.trim())
+    .filter(Boolean)
+);
+
+dotenv.config({ path: './.env' });
 const app = express();
 
 app.use(cors({

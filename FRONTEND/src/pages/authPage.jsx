@@ -14,9 +14,9 @@ const AuthPage = () => {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&display=swap');
         * { box-sizing: border-box; }
-        body { margin: 0; background: #0f0a0a; }
+        body { margin: 0; background: #fcfaf9; }
         input { font-family: 'Outfit', sans-serif !important; }
-        input:focus { outline: none !important; border-color: #e74c3c !important; box-shadow: 0 0 0 3px rgba(231,76,60,0.15) !important; }
+        input:focus { outline: none !important; border-color: #2f6690 !important; box-shadow: 0 0 0 3px rgba(47,102,144,0.15) !important; }
         @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
         @keyframes slideIn { from { opacity:0; transform:translateX(20px); } to { opacity:1; transform:translateX(0); } }
       `}</style>
@@ -33,9 +33,9 @@ const AuthPage = () => {
           <div style={styles.badge}>🔗 Free URL Shortener</div>
           <h1 style={styles.heroTitle}>
             {login ? (
-              <>Welcome<br /><span style={{ color: '#e74c3c' }}>back.</span></>
+              <>Welcome<br /><span style={{ color: '#9d8420' }}>back.</span></>
             ) : (
-              <>Join us<br /><span style={{ color: '#e74c3c' }}>today.</span></>
+              <>Join us<br /><span style={{ color: '#9d8420' }}>today.</span></>
             )}
           </h1>
           <p style={styles.heroSub}>
@@ -95,9 +95,9 @@ const AuthPage = () => {
 
           <p style={styles.footNote}>
             By continuing, you agree to our{' '}
-            <span style={{ color: '#e74c3c', cursor: 'pointer' }}>Terms of Service</span>
+            <span style={{ color: '#2f6690', cursor: 'pointer' }}>Terms of Service</span>
             {' '}and{' '}
-            <span style={{ color: '#e74c3c', cursor: 'pointer' }}>Privacy Policy</span>.
+            <span style={{ color: '#2f6690', cursor: 'pointer' }}>Privacy Policy</span>.
           </p>
         </div>
       </main>
@@ -105,7 +105,7 @@ const AuthPage = () => {
       {/* Footer */}
       <footer style={styles.footer}>
         <span style={styles.logoText}>
-          ShortUrl<span style={{ color: '#e74c3c' }}>4U</span>
+          ShortUrl<span style={{ color: '#9d8420' }}>4U</span>
         </span>
         <span style={{ color: '#444', fontSize: 12 }}>© 2026 — Free URL Shortener</span>
       </footer>
@@ -116,9 +116,9 @@ const AuthPage = () => {
 const styles = {
   page: {
     minHeight: '100vh',
-    background: '#0f0a0a',
+    background: '#fcfaf9',
     fontFamily: "'Outfit', sans-serif",
-    color: '#f5f0f0',
+    color: '#2d3142',
     position: 'relative',
     overflow: 'hidden',
     display: 'flex',
@@ -127,13 +127,13 @@ const styles = {
   blob1: {
     position: 'fixed', top: -100, right: -100,
     width: 500, height: 500, borderRadius: '50%',
-    background: 'radial-gradient(circle, rgba(231,76,60,0.13) 0%, transparent 70%)',
+    background: 'radial-gradient(circle, rgba(47,102,144,0.1) 0%, transparent 70%)',
     pointerEvents: 'none', zIndex: 0,
   },
   blob2: {
     position: 'fixed', bottom: -150, left: -100,
     width: 600, height: 600, borderRadius: '50%',
-    background: 'radial-gradient(circle, rgba(192,57,43,0.08) 0%, transparent 70%)',
+    background: 'radial-gradient(circle, rgba(157,132,32,0.07) 0%, transparent 70%)',
     pointerEvents: 'none', zIndex: 0,
   },
 
@@ -153,15 +153,15 @@ const styles = {
   },
   badge: {
     display: 'inline-block',
-    background: 'rgba(231,76,60,0.1)',
-    border: '1px solid rgba(231,76,60,0.25)',
-    color: '#e74c3c', fontSize: 12, fontWeight: 500,
+    background: 'rgba(47,102,144,0.1)',
+    border: '1px solid rgba(47,102,144,0.22)',
+    color: '#2f6690', fontSize: 12, fontWeight: 600,
     padding: '5px 12px', borderRadius: 20, marginBottom: 20,
   },
   heroTitle: {
     fontFamily: "'Syne', sans-serif", fontWeight: 800,
     fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
-    lineHeight: 1.05, margin: '0 0 18px', color: '#f5f0f0',
+    lineHeight: 1.05, margin: '0 0 18px', color: '#2d3142',
   },
   heroSub: {
     fontSize: 15, color: '#777', lineHeight: 1.7,
@@ -174,7 +174,7 @@ const styles = {
   },
   featureDot: {
     width: 6, height: 6, borderRadius: '50%',
-    background: '#e74c3c', flexShrink: 0,
+    background: '#2f6690', flexShrink: 0,
   },
 
   // Right panel
@@ -185,8 +185,8 @@ const styles = {
   },
   tabBar: {
     display: 'flex',
-    background: 'rgba(255,255,255,0.02)',
-    border: '1px solid rgba(255,255,255,0.06)',
+    background: '#ffffff',
+    border: '1px solid rgba(45,49,66,0.1)',
     borderBottom: 'none',
     borderRadius: '16px 16px 0 0',
     overflow: 'hidden',
@@ -199,20 +199,20 @@ const styles = {
     transition: 'all 0.2s',
   },
   tabActive: {
-    color: '#e74c3c',
-    background: 'rgba(231,76,60,0.06)',
-    borderBottom: '2px solid #e74c3c',
+    color: '#2f6690',
+    background: 'rgba(47,102,144,0.06)',
+    borderBottom: '2px solid #2f6690',
   },
   card: {
-    background: 'rgba(255,255,255,0.025)',
-    border: '1px solid rgba(255,255,255,0.06)',
+    background: '#ffffff',
+    border: '1px solid rgba(45,49,66,0.1)',
     borderRadius: '0 0 16px 16px',
     overflow: 'hidden',
     boxShadow: '0 24px 64px rgba(0,0,0,0.4)',
   },
   accentBar: {
     height: 2,
-    background: 'linear-gradient(90deg, #e74c3c, transparent)',
+    background: 'linear-gradient(90deg, #2f6690, transparent)',
   },
   cardBody: { padding: '28px 32px 32px' },
   footNote: {

@@ -15,7 +15,7 @@ const QRGenerator = () => {
     setLoading(true);
     setQrSrc(null);
     const encoded = encodeURIComponent(qrUrl.trim());
-    const src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encoded}&color=e74c3c&bgcolor=140a0a`;
+    const src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encoded}&color=2d3142&bgcolor=fcfaf9`;
     const img = new Image();
     img.onload = () => { setQrSrc(src); setLoading(false); };
     img.onerror = () => setLoading(false);
@@ -72,7 +72,7 @@ const QRGenerator = () => {
           <div style={qrStyles.qrBox}>
             <img src={qrSrc} alt="QR Code" style={{ width: 180, height: 180, borderRadius: 6, display: 'block' }} />
           </div>
-          <p style={{ fontSize: 12, color: '#555', margin: '8px 0 12px', textAlign: 'center' }}>
+          <p style={{ fontSize: 12, color: '#5f626c', margin: '8px 0 12px', textAlign: 'center' }}>
             Scan with any camera app
           </p>
           <div style={{ display: 'flex', gap: 8 }}>
@@ -81,8 +81,8 @@ const QRGenerator = () => {
               onClick={handleCopy}
               style={{
                 ...qrStyles.outlineBtn,
-                color: copied ? '#2ecc71' : '#e74c3c',
-                borderColor: copied ? 'rgba(46,204,113,0.4)' : 'rgba(231,76,60,0.25)',
+                color: copied ? '#2e7d5c' : '#2f6690',
+                borderColor: copied ? 'rgba(46,125,92,0.4)' : 'rgba(47,102,144,0.25)',
               }}
             >
               {copied ? '✓ Copied!' : '⧉ Copy URL'}
@@ -99,19 +99,19 @@ const qrStyles = {
   fieldGroup: { display: 'flex', flexDirection: 'column' },
   label: {
     fontSize: 11, fontWeight: 600, letterSpacing: '0.1em',
-    textTransform: 'uppercase', color: '#666', marginBottom: 8, display: 'block',
+    textTransform: 'uppercase', color: '#5f626c', marginBottom: 8, display: 'block',
   },
   inputWrap: { position: 'relative', display: 'flex', alignItems: 'center' },
   icon: { position: 'absolute', left: 14, fontSize: 14, pointerEvents: 'none', opacity: 0.45 },
   input: {
-    width: '100%', background: 'rgba(255,255,255,0.04)',
-    border: '1px solid rgba(255,255,255,0.08)',
+    width: '100%', background: '#fcfaf9',
+    border: '1px solid rgba(45,49,66,0.16)',
     borderRadius: 10, padding: '12px 14px 12px 40px',
-    color: '#f0e8e8', fontSize: 14, fontFamily: "'Outfit', sans-serif",
+    color: '#2d3142', fontSize: 14, fontFamily: "'Outfit', sans-serif",
     transition: 'border-color 0.2s',
   },
   btn: {
-    width: '100%', background: 'linear-gradient(135deg, #e74c3c, #c0392b)',
+    width: '100%', background: '#2f6690',
     border: 'none', borderRadius: 10, color: '#fff',
     fontSize: 14, fontWeight: 600, padding: '12px 20px',
     cursor: 'pointer', fontFamily: "'Outfit', sans-serif", transition: 'opacity 0.15s',
@@ -130,12 +130,12 @@ const qrStyles = {
   },
   result: {
     display: 'flex', flexDirection: 'column', alignItems: 'center',
-    background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(231,76,60,0.12)',
+    background: 'rgba(47,102,144,0.04)', border: '1px solid rgba(47,102,144,0.12)',
     borderRadius: 12, padding: '20px 16px', gap: 4,
   },
   qrBox: {
-    padding: 12, background: 'rgba(231,76,60,0.06)',
-    border: '1px solid rgba(231,76,60,0.15)', borderRadius: 12,
+    padding: 12, background: 'rgba(47,102,144,0.06)',
+    border: '1px solid rgba(47,102,144,0.15)', borderRadius: 12,
   },
 };
 
@@ -149,8 +149,8 @@ const DashboardPage = () => {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&display=swap');
         * { box-sizing: border-box; }
-        body { margin: 0; background: #0f0a0a; }
-        input:focus { outline: none !important; border-color: #e74c3c !important; box-shadow: 0 0 0 3px rgba(231,76,60,0.15) !important; }
+        body { margin: 0; background: #fcfaf9; }
+        input:focus { outline: none !important; border-color: #2f6690 !important; box-shadow: 0 0 0 3px rgba(47,102,144,0.15) !important; }
         @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
         @keyframes spin { to { transform: rotate(360deg); } }
       `}</style>
@@ -165,15 +165,15 @@ const DashboardPage = () => {
           <div style={styles.welcomeInner}>
             <div>
               <h1 style={styles.welcomeTitle}>
-                Welcome back, <span style={{ color: '#e74c3c' }}>{user?.name?.split(' ')[0] || 'there'}</span> 👋
+                Welcome back, <span style={{ color: '#9d8420' }}>{user?.name?.split(' ')[0] || 'there'}</span> 👋
               </h1>
               <p style={styles.welcomeSub}>Shorten links, generate QR codes, and manage your URLs below.</p>
             </div>
             <div style={styles.pillRow}>
               {[['↗', 'Your Links'], ['✓', 'All Active']].map(([icon, label]) => (
                 <div key={label} style={styles.pill}>
-                  <span style={{ color: '#e74c3c' }}>{icon}</span>
-                  <span style={{ fontSize: 13, color: '#888' }}>{label}</span>
+                  <span style={{ color: '#2f6690' }}>{icon}</span>
+                  <span style={{ fontSize: 13, color: '#5f626c' }}>{label}</span>
                 </div>
               ))}
             </div>
@@ -234,7 +234,7 @@ const DashboardPage = () => {
 
       <footer style={styles.footer}>
         <span style={styles.logoText}>
-          ShortUrl<span style={{ color: '#e74c3c' }}>4U</span>
+          ShortUrl<span style={{ color: '#9d8420' }}>4U</span>
         </span>
         <span style={{ color: '#444', fontSize: 12 }}>© 2026 — All rights reserved</span>
       </footer>
@@ -244,21 +244,21 @@ const DashboardPage = () => {
 
 const styles = {
   page: {
-    minHeight: '100vh', background: '#0f0a0a',
-    fontFamily: "'Outfit', sans-serif", color: '#f5f0f0',
+    minHeight: '100vh', background: '#fcfaf9',
+    fontFamily: "'Outfit', sans-serif", color: '#2d3142',
     position: 'relative', overflow: 'hidden',
     display: 'flex', flexDirection: 'column',
   },
   blob1: {
     position: 'fixed', top: -120, right: -120,
     width: 500, height: 500, borderRadius: '50%',
-    background: 'radial-gradient(circle, rgba(231,76,60,0.12) 0%, transparent 70%)',
+    background: 'radial-gradient(circle, rgba(47,102,144,0.1) 0%, transparent 70%)',
     pointerEvents: 'none', zIndex: 0,
   },
   blob2: {
     position: 'fixed', bottom: -150, left: -100,
     width: 600, height: 600, borderRadius: '50%',
-    background: 'radial-gradient(circle, rgba(192,57,43,0.08) 0%, transparent 70%)',
+    background: 'radial-gradient(circle, rgba(157,132,32,0.07) 0%, transparent 70%)',
     pointerEvents: 'none', zIndex: 0,
   },
 
@@ -270,8 +270,8 @@ const styles = {
 
   // Shared card
   card: {
-    background: 'rgba(255,255,255,0.02)',
-    border: '1px solid rgba(255,255,255,0.06)',
+    background: '#ffffff',
+    border: '1px solid rgba(45,49,66,0.1)',
     borderRadius: 20, overflow: 'hidden',
     boxShadow: '0 20px 60px rgba(0,0,0,0.25)',
   },
@@ -280,19 +280,19 @@ const styles = {
   welcomeInner: {
     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
     flexWrap: 'wrap', gap: 16, padding: '24px 28px',
-    background: 'rgba(231,76,60,0.04)',
+    background: 'rgba(47,102,144,0.05)',
   },
   welcomeTitle: {
     fontFamily: "'Syne', sans-serif", fontWeight: 800,
     fontSize: 'clamp(1.3rem, 3vw, 1.9rem)',
-    margin: '0 0 6px', color: '#f0e8e8',
+    margin: '0 0 6px', color: '#2d3142',
   },
-  welcomeSub: { margin: 0, fontSize: 13, color: '#666' },
+  welcomeSub: { margin: 0, fontSize: 13, color: '#5f626c' },
   pillRow: { display: 'flex', gap: 10 },
   pill: {
     display: 'flex', alignItems: 'center', gap: 6,
-    background: 'rgba(255,255,255,0.03)',
-    border: '1px solid rgba(255,255,255,0.07)',
+    background: '#ffffff',
+    border: '1px solid rgba(45,49,66,0.1)',
     borderRadius: 20, padding: '6px 14px',
   },
 
@@ -303,34 +303,34 @@ const styles = {
   },
   cardHeaderIcon: {
     width: 42, height: 42, borderRadius: 10,
-    background: 'rgba(231,76,60,0.1)', border: '1px solid rgba(231,76,60,0.2)',
+    background: 'rgba(47,102,144,0.1)', border: '1px solid rgba(47,102,144,0.2)',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
     fontSize: 20, flexShrink: 0,
   },
   cardTitle: {
     fontFamily: "'Syne', sans-serif", fontWeight: 700,
-    fontSize: 17, margin: '0 0 3px', color: '#f0e8e8',
+    fontSize: 17, margin: '0 0 3px', color: '#2d3142',
   },
-  cardSub: { margin: 0, fontSize: 12, color: '#555' },
-  accentBar: { height: 2, background: 'linear-gradient(90deg, #e74c3c, transparent)' },
+  cardSub: { margin: 0, fontSize: 12, color: '#5f626c' },
+  accentBar: { height: 2, background: 'linear-gradient(90deg, #2f6690, transparent)' },
 
   // Tabs
   tabBar: {
     display: 'flex',
-    borderBottom: '1px solid rgba(255,255,255,0.05)',
+    borderBottom: '1px solid rgba(45,49,66,0.1)',
   },
   tab: {
     flex: 1, padding: '14px 8px',
     background: 'transparent', border: 'none',
     borderBottom: '2px solid transparent',
-    color: '#555', fontSize: 14, fontWeight: 500,
+    color: '#5f626c', fontSize: 14, fontWeight: 500,
     cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
     transition: 'all 0.2s',
   },
   tabActive: {
-    color: '#e74c3c',
-    borderBottom: '2px solid #e74c3c',
-    background: 'rgba(231,76,60,0.04)',
+    color: '#2f6690',
+    borderBottom: '2px solid #2f6690',
+    background: 'rgba(47,102,144,0.04)',
   },
   cardBody: { padding: '24px' },
 
@@ -339,11 +339,11 @@ const styles = {
     position: 'relative', zIndex: 1,
     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
     padding: '16px 40px',
-    borderTop: '1px solid rgba(255,255,255,0.04)',
+    borderTop: '1px solid rgba(45,49,66,0.1)',
   },
   logoText: {
     fontFamily: "'Syne', sans-serif", fontWeight: 700,
-    fontSize: 16, color: '#f5f0f0',
+    fontSize: 16, color: '#2d3142',
   },
 };
 

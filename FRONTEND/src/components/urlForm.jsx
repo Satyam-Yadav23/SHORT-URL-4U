@@ -249,7 +249,7 @@ const UrlForm = () => {
           </div>
           {customUrl && (
             <span style={styles.previewText}>
-              Preview: <span style={{ color: '#e74c3c' }}>localhost:3000/{customUrl}</span>
+              Preview: <span style={{ color: '#2f6690' }}>localhost:3000/{customUrl}</span>
             </span>
           )}
         </div>
@@ -303,9 +303,9 @@ const UrlForm = () => {
               onClick={handleCopy}
               style={{
                 ...styles.copyBtn,
-                background: copied ? 'rgba(46,204,113,0.15)' : 'rgba(231,76,60,0.1)',
-                borderColor: copied ? 'rgba(46,204,113,0.4)' : 'rgba(231,76,60,0.25)',
-                color: copied ? '#2ecc71' : '#e74c3c',
+                background: copied ? 'rgba(46,125,92,0.14)' : 'rgba(47,102,144,0.1)',
+                borderColor: copied ? 'rgba(46,125,92,0.4)' : 'rgba(47,102,144,0.25)',
+                color: copied ? '#2e7d5c' : '#2f6690',
               }}
             >
               {copied ? '✓ Copied!' : '⧉ Copy'}
@@ -355,10 +355,10 @@ const styles = {
     pointerEvents: 'none', opacity: 0.45,
   },
   input: {
-    width: '100%', background: 'rgba(255,255,255,0.04)',
-    border: '1px solid rgba(255,255,255,0.08)',
+    width: '100%', background: '#fcfaf9',
+    border: '1px solid rgba(45,49,66,0.16)',
     borderRadius: 10, padding: '12px 14px 12px 40px',
-    color: '#f0e8e8', fontSize: 14,
+    color: '#2d3142', fontSize: 14,
     fontFamily: "'Outfit', sans-serif",
     transition: 'border-color 0.2s, box-shadow 0.2s',
   },
@@ -366,7 +366,7 @@ const styles = {
 
   submitBtn: {
     width: '100%',
-    background: 'linear-gradient(135deg, #e74c3c, #c0392b)',
+    background: '#2f6690',
     border: 'none', borderRadius: 10,
     color: '#fff', fontSize: 15, fontWeight: 600,
     padding: '13px 20px', cursor: 'pointer',
@@ -382,9 +382,9 @@ const styles = {
 
   errorBox: {
     display: 'flex', alignItems: 'center', gap: 8,
-    background: 'rgba(231,76,60,0.08)', border: '1px solid rgba(231,76,60,0.25)',
+    background: 'rgba(157,132,32,0.1)', border: '1px solid rgba(157,132,32,0.3)',
     borderRadius: 8, padding: '10px 14px',
-    color: '#e74c3c', fontSize: 13,
+    color: '#806b16', fontSize: 13,
   },
 
   divider: { display: 'flex', alignItems: 'center', gap: 10, margin: '4px 0 12px' },
@@ -393,12 +393,12 @@ const styles = {
 
   resultBox: {
     display: 'flex', alignItems: 'center', gap: 8,
-    background: 'rgba(231,76,60,0.05)', border: '1px solid rgba(231,76,60,0.15)',
+    background: 'rgba(47,102,144,0.06)', border: '1px solid rgba(47,102,144,0.16)',
     borderRadius: 10, padding: '12px 14px',
   },
   resultUrlWrap: { flex: 1, overflow: 'hidden' },
   resultUrl: {
-    color: '#e74c3c', fontSize: 14, fontWeight: 500,
+    color: '#2f6690', fontSize: 14, fontWeight: 500,
     textDecoration: 'none', display: 'block',
     whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
   },
@@ -423,13 +423,13 @@ const styles = {
   },
   qrImage: {
     width: 160, height: 160, display: 'block', margin: '0 auto',
-    borderRadius: 8, border: '1px solid rgba(231,76,60,0.2)',
+    borderRadius: 8, border: '1px solid rgba(47,102,144,0.2)',
   },
   qrSub: { fontSize: 12, color: '#555', margin: '8px 0 12px' },
   downloadBtn: {
     width: '100%', background: 'transparent',
-    border: '1px solid rgba(231,76,60,0.25)',
-    borderRadius: 8, color: '#e74c3c',
+    border: '1px solid rgba(157,132,32,0.45)',
+    borderRadius: 8, color: '#806b16',
     fontSize: 13, fontWeight: 500, padding: '9px',
     cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
   },

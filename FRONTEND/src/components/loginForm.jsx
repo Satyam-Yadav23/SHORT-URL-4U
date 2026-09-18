@@ -143,16 +143,16 @@ const styles = {
   titleRow: { marginBottom: 4 },
   title: {
     fontFamily: "'Syne', sans-serif", fontWeight: 800,
-    fontSize: 22, margin: "0 0 4px", color: "#f0e8e8",
+    fontSize: 22, margin: "0 0 4px", color: "#2d3142",
   },
   subtitle: { margin: 0, fontSize: 13, color: "#555" },
 
   errorBox: {
     display: "flex", alignItems: "center", gap: 8,
-    background: "rgba(231,76,60,0.1)",
-    border: "1px solid rgba(231,76,60,0.3)",
+    background: "rgba(157,132,32,0.1)",
+    border: "1px solid rgba(157,132,32,0.3)",
     borderRadius: 8, padding: "10px 14px",
-    color: "#e74c3c", fontSize: 13,
+    color: "#806b16", fontSize: 13,
   },
 
   form: { display: "flex", flexDirection: "column", gap: 18 },
@@ -169,10 +169,10 @@ const styles = {
     pointerEvents: "none", opacity: 0.5,
   },
   input: {
-    width: "100%", background: "rgba(255,255,255,0.04)",
-    border: "1px solid rgba(255,255,255,0.08)",
+    width: "100%", background: "#fcfaf9",
+    border: "1px solid rgba(45,49,66,0.16)",
     borderRadius: 10, padding: "12px 14px 12px 40px",
-    color: "#f0e8e8", fontSize: 14,
+    color: "#2d3142", fontSize: 14,
     fontFamily: "'Outfit', sans-serif",
     transition: "border-color 0.2s, box-shadow 0.2s",
   },
@@ -183,7 +183,7 @@ const styles = {
     padding: 4,
   },
   forgotLink: {
-    fontSize: 11, color: "#e74c3c", cursor: "pointer",
+    fontSize: 11, color: "#2f6690", cursor: "pointer",
     letterSpacing: "0.03em", background: "none", border: "none",
     padding: 0, fontFamily: "'Outfit', sans-serif",
     transition: "color 0.2s", padding: "2px 4px",
@@ -191,7 +191,7 @@ const styles = {
 
   submitBtn: {
     width: "100%",
-    background: "linear-gradient(135deg, #e74c3c, #c0392b)",
+    background: "#2f6690",
     border: "none", borderRadius: 10,
     color: "#fff", fontSize: 15, fontWeight: 600,
     padding: "13px 20px", cursor: "pointer",
@@ -214,8 +214,8 @@ const styles = {
 
   switchBtn: {
     width: "100%", background: "transparent",
-    border: "1px solid rgba(231,76,60,0.25)",
-    borderRadius: 10, color: "#e74c3c",
+    border: "1px solid rgba(157,132,32,0.45)",
+    borderRadius: 10, color: "#806b16",
     fontSize: 14, fontWeight: 500,
     padding: "12px 20px", cursor: "pointer",
     fontFamily: "'Outfit', sans-serif",

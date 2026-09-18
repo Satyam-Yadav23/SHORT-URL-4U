@@ -126,7 +126,7 @@ const styles = {
     fontWeight: 800,
     fontSize: 22,
     margin: "0 0 4px",
-    color: "#f0e8e8",
+    color: "#2d3142",
   },
   subtitle: { margin: 0, fontSize: 13, color: "#555" },
 
@@ -134,11 +134,11 @@ const styles = {
     display: "flex",
     alignItems: "center",
     gap: 8,
-    background: "rgba(231,76,60,0.1)",
-    border: "1px solid rgba(231,76,60,0.3)",
+    background: "rgba(157,132,32,0.1)",
+    border: "1px solid rgba(157,132,32,0.3)",
     borderRadius: 8,
     padding: "10px 14px",
-    color: "#e74c3c",
+    color: "#806b16",
     fontSize: 13,
   },
 
@@ -164,11 +164,11 @@ const styles = {
   },
   input: {
     width: "100%",
-    background: "rgba(255,255,255,0.04)",
-    border: "1px solid rgba(255,255,255,0.08)",
+    background: "#fcfaf9",
+    border: "1px solid rgba(45,49,66,0.16)",
     borderRadius: 10,
     padding: "12px 14px 12px 40px",
-    color: "#f0e8e8",
+    color: "#2d3142",
     fontSize: 14,
     fontFamily: "'Outfit', sans-serif",
     transition: "border-color 0.2s, box-shadow 0.2s",
@@ -176,7 +176,7 @@ const styles = {
 
   submitBtn: {
     width: "100%",
-    background: "linear-gradient(135deg, #e74c3c, #c0392b)",
+    background: "#2f6690",
     border: "none",
     borderRadius: 10,
     color: "#fff",
@@ -201,9 +201,9 @@ const styles = {
   backBtn: {
     width: "100%",
     background: "transparent",
-    border: "1px solid rgba(100,100,100,0.3)",
+    border: "1px solid rgba(157,132,32,0.45)",
     borderRadius: 10,
-    color: "#999",
+    color: "#806b16",
     fontSize: 14,
     fontWeight: 500,
     padding: "12px 20px",
@@ -230,7 +230,7 @@ const styles = {
     fontWeight: 700,
     fontSize: 18,
     margin: "0 0 8px",
-    color: "#f0e8e8",
+    color: "#2d3142",
   },
   successText: {
     margin: "0 0 12px",

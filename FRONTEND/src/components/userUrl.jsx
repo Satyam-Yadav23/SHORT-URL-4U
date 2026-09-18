@@ -148,10 +148,10 @@ const ClickBar = ({ clicks, max }) => {
             ...styles.barFill,
             width: `${pct}%`,
             background: pct > 66
-              ? 'linear-gradient(90deg, #e74c3c, #ff6b6b)'
+              ? 'linear-gradient(90deg, #2f6690, #5b8fb5)'
               : pct > 33
-              ? 'linear-gradient(90deg, #c0392b, #e74c3c)'
-              : 'linear-gradient(90deg, #922b21, #c0392b)',
+              ? 'linear-gradient(90deg, #2d5678, #2f6690)'
+              : 'linear-gradient(90deg, #806b16, #9d8420)',
           }}
         />
       </div>
@@ -183,7 +183,7 @@ const UserUrl = () => {
     return (
       <div style={styles.centerBox}>
         <div style={styles.spinner} />
-        <p style={{ color: '#555', fontSize: 13, marginTop: 12 }}>Loading your URLs...</p>
+        <p style={{ color: '#5f626c', fontSize: 13, marginTop: 12 }}>Loading your URLs...</p>
       </div>
     );
   }
@@ -194,7 +194,7 @@ const UserUrl = () => {
         <span style={{ fontSize: 18 }}>⚠</span>
         <div>
           <div style={{ fontWeight: 600, marginBottom: 2 }}>Error loading your URLs</div>
-          <div style={{ fontSize: 12, color: '#c0392b' }}>{error.message}</div>
+          <div style={{ fontSize: 12, color: '#806b16' }}>{error.message}</div>
         </div>
       </div>
     );
@@ -269,12 +269,12 @@ const UserUrl = () => {
                 style={{
                   ...styles.copyBtn,
                   background: copiedId === url._id
-                    ? 'rgba(46,204,113,0.15)'
-                    : 'rgba(231,76,60,0.08)',
+                    ? 'rgba(46,125,92,0.14)'
+                    : 'rgba(47,102,144,0.08)',
                   borderColor: copiedId === url._id
-                    ? 'rgba(46,204,113,0.4)'
-                    : 'rgba(231,76,60,0.2)',
-                  color: copiedId === url._id ? '#2ecc71' : '#e74c3c',
+                    ? 'rgba(46,125,92,0.4)'
+                    : 'rgba(47,102,144,0.2)',
+                  color: copiedId === url._id ? '#2e7d5c' : '#2f6690',
                 }}
               >
                 {copiedId === url._id ? '✓ Copied!' : '⧉ Copy'}
@@ -300,10 +300,10 @@ const UserUrl = () => {
                         ...styles.chartBar,
                         height: `${Math.max(pct, 4)}%`,
                         background: pct > 66
-                          ? 'linear-gradient(180deg, #ff6b6b, #e74c3c)'
+                          ? 'linear-gradient(180deg, #5b8fb5, #2f6690)'
                           : pct > 33
-                          ? 'linear-gradient(180deg, #e74c3c, #c0392b)'
-                          : 'linear-gradient(180deg, #c0392b, #922b21)',
+                          ? 'linear-gradient(180deg, #2f6690, #2d5678)'
+                          : 'linear-gradient(180deg, #9d8420, #806b16)',
                       }}
                     />
                   </div>
@@ -314,7 +314,7 @@ const UserUrl = () => {
                     onClick={() => handleCopy(`http://localhost:3000/${url.short_url}`, url._id)}
                     style={{
                       ...styles.chartCopyBtn,
-                      color: copiedId === url._id ? '#2ecc71' : '#555',
+                      color: copiedId === url._id ? '#2e7d5c' : '#5f626c',
                     }}
                   >
                     {copiedId === url._id ? '✓' : '⧉'}
@@ -351,44 +351,44 @@ const styles = {
     display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8,
   },
   countBadge: {
-    background: 'rgba(231,76,60,0.1)', border: '1px solid rgba(231,76,60,0.2)',
-    color: '#e74c3c', fontSize: 12, fontWeight: 600,
+    background: 'rgba(47,102,144,0.1)', border: '1px solid rgba(47,102,144,0.2)',
+    color: '#2f6690', fontSize: 12, fontWeight: 600,
     padding: '3px 10px', borderRadius: 20,
   },
-  totalClicks: { fontSize: 12, color: '#555', marginLeft: 8 },
+  totalClicks: { fontSize: 12, color: '#5f626c', marginLeft: 8 },
   viewToggle: { display: 'flex', gap: 4 },
   toggleBtn: {
-    background: 'transparent', border: '1px solid rgba(255,255,255,0.07)',
-    borderRadius: 8, color: '#555', fontSize: 12, fontWeight: 500,
+    background: 'transparent', border: '1px solid rgba(45,49,66,0.12)',
+    borderRadius: 8, color: '#5f626c', fontSize: 12, fontWeight: 500,
     padding: '5px 12px', cursor: 'pointer', fontFamily: "'Outfit', sans-serif",
     transition: 'all 0.2s',
   },
   toggleActive: {
-    background: 'rgba(231,76,60,0.1)', borderColor: 'rgba(231,76,60,0.3)', color: '#e74c3c',
+    background: 'rgba(47,102,144,0.1)', borderColor: 'rgba(47,102,144,0.3)', color: '#2f6690',
   },
 
   // List view
   listWrap: { display: 'flex', flexDirection: 'column', gap: 8, maxHeight: 360, overflowY: 'auto' },
   urlCard: {
     display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap',
-    background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)',
+    background: '#ffffff', border: '1px solid rgba(45,49,66,0.1)',
     borderRadius: 12, padding: '14px 16px',
     transition: 'border-color 0.2s',
   },
   urlInfo: { flex: 1, minWidth: 160, display: 'flex', flexDirection: 'column', gap: 4 },
-  originalUrl: { fontSize: 13, color: '#777', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' },
-  shortUrl: { fontSize: 13, color: '#e74c3c', textDecoration: 'none', fontWeight: 500 },
+  originalUrl: { fontSize: 13, color: '#5f626c', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' },
+  shortUrl: { fontSize: 13, color: '#2f6690', textDecoration: 'none', fontWeight: 500 },
   clickSection: { display: 'flex', flexDirection: 'column', gap: 4, minWidth: 120 },
-  clickLabel: { fontSize: 10, color: '#555', textTransform: 'uppercase', letterSpacing: '0.1em' },
+  clickLabel: { fontSize: 10, color: '#5f626c', textTransform: 'uppercase', letterSpacing: '0.1em' },
 
   // Bar (inline)
   barWrap: { display: 'flex', alignItems: 'center', gap: 8 },
   barTrack: {
     flex: 1, height: 6, borderRadius: 99,
-    background: 'rgba(255,255,255,0.05)', overflow: 'hidden', minWidth: 80,
+    background: 'rgba(45,49,66,0.08)', overflow: 'hidden', minWidth: 80,
   },
   barFill: { height: '100%', borderRadius: 99, transition: 'width 0.5s ease' },
-  barLabel: { fontSize: 12, color: '#e74c3c', fontWeight: 600, minWidth: 24, textAlign: 'right' },
+  barLabel: { fontSize: 12, color: '#2f6690', fontWeight: 600, minWidth: 24, textAlign: 'right' },
 
   copyBtn: {
     border: '1px solid', borderRadius: 8,
@@ -402,7 +402,7 @@ const styles = {
   chartWrap: { display: 'flex', flexDirection: 'column', gap: 20 },
   chartTitle: {
     fontFamily: "'Syne', sans-serif", fontWeight: 700,
-    fontSize: 15, color: '#f0e8e8', margin: 0,
+    fontSize: 15, color: '#2d3142', margin: 0,
   },
   chartBars: {
     display: 'flex', alignItems: 'flex-end', gap: 8,
@@ -412,7 +412,7 @@ const styles = {
     display: 'flex', flexDirection: 'column', alignItems: 'center',
     gap: 4, minWidth: 52, flex: 1,
   },
-  chartCount: { fontSize: 11, color: '#e74c3c', fontWeight: 600 },
+  chartCount: { fontSize: 11, color: '#2f6690', fontWeight: 600 },
   chartBarWrap: {
     width: '100%', height: 120,
     display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
@@ -423,7 +423,7 @@ const styles = {
     minHeight: 4,
   },
   chartUrlLabel: {
-    fontSize: 10, color: '#555', textAlign: 'center',
+    fontSize: 10, color: '#5f626c', textAlign: 'center',
     maxWidth: 52, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
   },
   chartCopyBtn: {
@@ -436,38 +436,38 @@ const styles = {
     display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8,
   },
   statBox: {
-    background: 'rgba(231,76,60,0.05)', border: '1px solid rgba(231,76,60,0.1)',
+    background: 'rgba(157,132,32,0.07)', border: '1px solid rgba(157,132,32,0.18)',
     borderRadius: 10, padding: '12px 8px',
     display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3,
   },
   statVal: {
     fontFamily: "'Syne', sans-serif", fontWeight: 700,
-    fontSize: 18, color: '#e74c3c',
+    fontSize: 18, color: '#9d8420',
   },
-  statLabel: { fontSize: 10, color: '#555', textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center' },
+  statLabel: { fontSize: 10, color: '#5f626c', textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center' },
 
   // States
   centerBox: { display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '32px 0' },
   spinner: {
     width: 28, height: 28,
-    border: '2px solid rgba(231,76,60,0.2)',
-    borderTopColor: '#e74c3c', borderRadius: '50%',
+    border: '2px solid rgba(47,102,144,0.2)',
+    borderTopColor: '#2f6690', borderRadius: '50%',
     animation: 'spin 0.7s linear infinite',
   },
   errorBox: {
     display: 'flex', alignItems: 'flex-start', gap: 12,
-    background: 'rgba(231,76,60,0.08)', border: '1px solid rgba(231,76,60,0.2)',
-    borderRadius: 10, padding: '14px 16px', color: '#e74c3c', fontSize: 14,
+    background: 'rgba(157,132,32,0.1)', border: '1px solid rgba(157,132,32,0.25)',
+    borderRadius: 10, padding: '14px 16px', color: '#806b16', fontSize: 14,
   },
   emptyBox: {
     display: 'flex', flexDirection: 'column', alignItems: 'center',
     padding: '36px 20px', textAlign: 'center',
-    background: 'rgba(255,255,255,0.01)', border: '1px dashed rgba(255,255,255,0.07)',
+    background: 'rgba(47,102,144,0.03)', border: '1px dashed rgba(45,49,66,0.15)',
     borderRadius: 12,
   },
   emptyIcon: { fontSize: 36, marginBottom: 12, opacity: 0.4 },
-  emptyTitle: { fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 16, color: '#555', margin: '0 0 6px' },
-  emptySub: { fontSize: 13, color: '#444', margin: 0 },
+  emptyTitle: { fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 16, color: '#2d3142', margin: '0 0 6px' },
+  emptySub: { fontSize: 13, color: '#5f626c', margin: 0 },
 };
 
 export default UserUrl;
