@@ -1,6 +1,8 @@
+const isProduction = process.env.NODE_ENV === 'production' || process.env.FRONTEND_URL?.startsWith('https://');
+
 export const cookieOptions = {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production', 
-    sameSite: "Lax",
-    maxAge: 1000 * 60 * 60, // 1 hour
+    secure: isProduction,
+    sameSite: isProduction ? "none" : "lax",
+    maxAge: 1000 * 60 * 60,
 }

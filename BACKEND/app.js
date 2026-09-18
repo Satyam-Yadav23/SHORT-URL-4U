@@ -25,7 +25,7 @@ const app = express();
 
    const allowedOrigins = [
      "https://shorturl4u.vercel.app",
-     "https://short-url-4-u-url-shortener-3arfanuzb.vercel.app/",
+    "https://short-url-4-u-url-shortener-3arfanuzb.vercel.app",
      "http://localhost:5173",
    ];
 

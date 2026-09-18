@@ -16,6 +16,6 @@ export const authMiddleware = async(req, res, next) => {
         req.user = user; // Attach user to request object
         next();
     } catch (err) {
-        return res.status(401).json({message:"Unauthorized",error})
+        return res.status(401).json({message:"Unauthorized"})
     }
 };
